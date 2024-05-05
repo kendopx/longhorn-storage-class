@@ -8,6 +8,12 @@
 helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver/
 helm repo update
 
+# Deploy EBS CSI Driver
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=master"
+
+# Verify ebs-csi pods running
+kubectl get pods -n kube-system
+
 ### 1. First, add the Longhorn Helm repository:
 helm repo add longhorn https://charts.longhorn.io
 helm repo update
